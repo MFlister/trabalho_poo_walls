@@ -6,7 +6,7 @@ from pandas.core.algorithms import mode
 from pandas.io.parsers import read_csv
 import os
 import re
-from todo import TaskManager, Task
+from task import TaskManager, Task
 
 
 
