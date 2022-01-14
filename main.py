@@ -1,13 +1,8 @@
 from datetime import datetime
-from inquirer.questions import Text
-import pandas as pd
 import inquirer
-from pandas.core.algorithms import mode
 from pandas.io.parsers import read_csv
-import os
 import re
-from task import TaskManager, Task
-
+from task import Task, TaskManager
 
 
 def MainMenu():
@@ -26,12 +21,13 @@ def MainMenu():
 
 # Filtra os dados recebidos do usuário e retorna um objeto Task
 
+
 def dataTaskDictProcessing(task_dict):
 
     title = ' '.join(task_dict['title'].split())
 
     if title == "":
-        print("\nO título da tarefa é obrigatório\n")
+        print("\033[31m"+"\nO título da tarefa é obrigatório\n"+"\033[31m")
         return None
     else:
         #title = task_dict['title'].strip("\n")
@@ -51,6 +47,7 @@ def dataTaskDictProcessing(task_dict):
             return None
 
         return Task(title, description, tag, date)
+
 
 if __name__ == '__main__':
 
@@ -80,3 +77,4 @@ if __name__ == '__main__':
 
         elif choice == 'Sair':
             break
+
